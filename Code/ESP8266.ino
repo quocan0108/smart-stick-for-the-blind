@@ -9,16 +9,13 @@ MPU6050 mpu;
 // const int led_pin = 2;
 int time_present;
 
-// const char* ssid = "Ty King";
-// const char* password = "07092003";
-
-const char* ssid = "H-wifi";
-const char* password = "F1234567";
+const char* ssid = "";
+const char* password = "";
 
 uint8_t connection_state = 0;
 uint16_t reconnect_interval = 10000;
 
-EMailSender emailSend("lechisang2003@gmail.com", "fvvb wgmb znal dwud");
+EMailSender emailSend("abc", "xxx");
 
 uint8_t WiFiConnect(const char* nSSID = nullptr, const char* nPassword = nullptr)
 {
@@ -86,9 +83,7 @@ void send_alert(){
   message.subject = "Thông báo khẩn cấp";
   message.message = "Tôi bị ngã, hãy tới giúp tôi!";
 
-  // EMailSender::Response resp = emailSend.send("quangsang0709@gmail.com", message);
   EMailSender::Response resp = emailSend.send("quocanle999@gmail.com", message);
-  // EMailSender::Response resp3 = emailSend.send("cuongphan0318@gmail.com", message);
 
   Serial.println("Sending status: ");
   Serial.println(resp.status);
